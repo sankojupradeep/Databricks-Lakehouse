@@ -1,0 +1,295 @@
+{
+  "datasets": [
+    {
+      "name": "d1a8f6b3",
+      "displayName": "fully_transformed_data",
+      "queryLines": [
+        "SELECT * FROM financial_transaction.default.fully_transformed_data"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "02c9c4c2",
+      "displayName": "Untitled page",
+      "layout": [
+        {
+          "widget": {
+            "name": "7e3283f3",
+            "multilineTextboxSpec": {
+              "lines": [
+                ""
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 10,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "12199f72",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "d1a8f6b3",
+                  "fields": [
+                    {
+                      "name": "category",
+                      "expression": "`category`"
+                    },
+                    {
+                      "name": "sum(amount)",
+                      "expression": "SUM(`amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "category",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "category"
+                },
+                "y": {
+                  "fieldName": "sum(amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Sum of amount"
+                }
+              },
+              "frame": {
+                "title": "Total amount per category",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 3,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "d5d782d8",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "d1a8f6b3",
+                  "fields": [
+                    {
+                      "name": "sum(amount)",
+                      "expression": "SUM(`amount`)"
+                    },
+                    {
+                      "name": "category",
+                      "expression": "`category`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "sum(amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Sum of amount"
+                },
+                "color": {
+                  "fieldName": "category",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "category"
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "frame": {
+                "title": "Total amount per category",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 0,
+            "width": 3,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "aff8c4c7",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "d1a8f6b3",
+                  "fields": [
+                    {
+                      "name": "payment",
+                      "expression": "`payment`"
+                    },
+                    {
+                      "name": "count(transaction_id)",
+                      "expression": "COUNT(`transaction_id`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "payment",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "payment"
+                },
+                "y": {
+                  "fieldName": "count(transaction_id)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Count of transaction_id"
+                }
+              },
+              "frame": {
+                "title": "Count of Payment Modes",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 4,
+            "width": 3,
+            "height": 5
+          }
+        },
+        {
+          "widget": {
+            "name": "0d968c67",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "d1a8f6b3",
+                  "fields": [
+                    {
+                      "name": "customer_id",
+                      "expression": "`customer_id`"
+                    },
+                    {
+                      "name": "count(payment)",
+                      "expression": "COUNT(`payment`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "customer_id",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "customer_id"
+                },
+                "y": {
+                  "fieldName": "count(payment)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Count of payment"
+                }
+              },
+              "frame": {
+                "title": "Count of Customers by Payment Mode",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 4,
+            "width": 3,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "59790f3a",
+      "displayName": "Global Filters",
+      "layout": [
+        {
+          "widget": {
+            "name": "972ea5db",
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {},
+              "frame": {
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_GLOBAL_FILTERS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
